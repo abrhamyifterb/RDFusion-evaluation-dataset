@@ -1,0 +1,115 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix exs:  <https://example.org/rdfusion-eval/shapes/> .
+
+exs:CatalogShape
+    a sh:NodeShape ;
+    sh:name "Catalogue shape"@en ;
+    sh:description "Basic checks for the catalogue resource in the evaluation data."@en ;
+    sh:targetClass dcat:Catalog ;
+    sh:property exs:CatalogTitlePropertyShape ;
+    sh:property exs:CatalogDatasetPropertyShape .
+
+exs:CatalogTitlePropertyShape
+    a sh:PropertyShape ;
+    sh:path dct:title ;
+    sh:minCount 1 ;
+    sh:message "A catalogue should have a title."@en .
+
+exs:CatalogDatasetPropertyShape
+    a sh:PropertyShape ;
+    sh:path dcat:dataset ;
+    sh:minCount 1 ;
+    sh:message "A catalogue should list at least one dataset."@en .
+
+exs:DatasetShape
+    a sh:NodeShape ;
+    sh:name "Dataset shape"@en ;
+    sh:description "Focused checks for dataset metadata."@en ;
+    sh:targetClass dcat:Dataset ;
+    sh:property exs:DatasetTitlePropertyShape ;
+    sh:property exs:DatasetDescriptionPropertyShape ;
+    sh:property exs:DatasetPublisherPropertyShape ;
+    sh:property exs:DatasetDistributionPropertyShape .
+
+exs:DatasetTitlePropertyShape
+    a sh:PropertyShape ;
+    sh:path dct:title ;
+    sh:minCount 1 ;
+    sh:message "A dataset must have a title."@en .
+
+exs:DatasetDescriptionPropertyShape
+    a sh:PropertyShape ;
+    sh:path dct:description ;
+    sh:minCount 1 ;
+    sh:message "A dataset must have a description."@en .
+
+exs:DatasetPublisherPropertyShape
+    a sh:PropertyShape ;
+    sh:path dct:publisher ;
+    sh:minCount 1 ;
+    sh:message "A dataset must have a publisher."@en .
+
+exs:DatasetDistributionPropertyShape
+    a sh:PropertyShape ;
+    sh:path dcat:distribution ;
+    sh:minCount 1 ;
+    sh:message "A dataset must have at least one distribution."@en .
+
+exs:DistributionShape
+    a sh:NodeShape ;
+    sh:name "Distribution shape"@en ;
+    sh:description "Focused checks for distribution metadata."@en ;
+    sh:targetClass dcat:Distribution ;
+    sh:property exs:DistributionTitlePropertyShape ;
+    sh:property exs:DistributionDownloadUrlPropertyShape .
+
+exs:DistributionTitlePropertyShape
+    a sh:PropertyShape ;
+    sh:path dct:title ;
+    sh:minCount 1 ;
+    sh:message "A distribution should have a title."@en .
+
+exs:DistributionDownloadUrlPropertyShape
+    a sh:PropertyShape ;
+    sh:path dcat:downloadURL ;
+    sh:minCount 1 ;
+    sh:message "A distribution should provide a download URL for this evaluation task."@en .
+
+exs:AgentShape
+    a sh:NodeShape ;
+    sh:name "Publisher shape"@en ;
+    sh:description "Additional publisher metadata check included in the broad shape set."@en ;
+    sh:targetClass foaf:Agent ;
+    sh:property exs:AgentNamePropertyShape .
+
+exs:AgentNamePropertyShape
+    a sh:PropertyShape ;
+    sh:path foaf:name ;
+    sh:minCount 1 ;
+    sh:message "A publisher agent should have a name."@en .
+
+exs:PeriodOfTimeShape
+    a sh:NodeShape ;
+    sh:name "Temporal coverage shape"@en ;
+    sh:description "Additional temporal coverage check included in the broad shape set."@en ;
+    sh:targetClass dct:PeriodOfTime ;
+    sh:property exs:PeriodStartDatePropertyShape ;
+    sh:property exs:PeriodEndDatePropertyShape .
+
+exs:PeriodStartDatePropertyShape
+    a sh:PropertyShape ;
+    sh:path dcat:startDate ;
+    sh:minCount 1 ;
+    sh:datatype xsd:date ;
+    sh:message "A period of time should have a start date."@en .
+
+exs:PeriodEndDatePropertyShape
+    a sh:PropertyShape ;
+    sh:path dcat:endDate ;
+    sh:minCount 1 ;
+    sh:datatype xsd:date ;
+    sh:message "A period of time should have an end date."@en .

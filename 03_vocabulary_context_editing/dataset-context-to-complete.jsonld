@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "type": "@type",
+    "identifier": "dct:identifier",
+    "publisher": "dct:publisher",
+    "name": {
+      "@id": "foaf:name",
+      "@language": "en"
+    },
+    "homepage": {
+      "@id": "foaf:homepage",
+      "@type": "@id"
+    },
+    "issued": {
+      "@id": "dct:issued",
+      "@type": "xsd:date"
+    },
+    "modified": {
+      "@id": "dct:modified",
+      "@type": "xsd:date"
+    }
+  },
+  "id": "https://example.org/rdfusion-eval/dataset/tree-inventory",
+  "type": "dcat:Dataset",
+  "identifier": "tree-inventory-2024",
+  "issued": "2024-04-15",
+  "modified": "2024-05-25",
+  "publisher": {
+    "id": "https://example.org/rdfusion-eval/organization/parks-department",
+    "type": "foaf:Agent",
+    "name": "Parks Department",
+    "homepage": "https://example.org/parks"
+  }
+}

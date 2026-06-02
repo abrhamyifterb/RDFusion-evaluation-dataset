@@ -1,0 +1,70 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "title": "dct:title",
+    "description": "dct:description",
+    "issued": "dct:issued",
+    "modified": {"@id": "dct:modified", "@type": "xsd:date"},
+    "publisher": {"@id": "dct:publisher", "@type": "@id"},
+    "dataset": {"@id": "dcat:dataset", "@type": "@id"},
+    "distribution": {"@id": "dcat:distribution", "@type": "@id"},
+    "keyword": "dcat:keyword",
+    "theme": {"@id": "dcat:theme", "@type": "@id"},
+    "landingPage": {"@id": "dcat:landingPage", "@type": "@id"},
+    "downloadURL": {"@id": "dcat:downloadURL", "@type": "@id"},
+    "mediaType": {"@id": "dcat:mediaType", "@type": "@id"},
+    "format": {"@id": "dct:format", "@type": "@id"},
+    "name": "foaf:name"
+  },
+  "@graph": [
+    {
+      "@id": "https://example.org/rdfusion-eval/catalogue/draft-validation-record-jsonld",
+      "@type": "https://example.org/rdfusion-eval/class/DraftCatalogueRecord",
+      "dct:titel": "Draft regional transport catalogue",
+      "publisher": "https://example.org/rdfusion-eval/organization/city-data-office",
+      "dataset": "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld",
+      "adms:identifier": "catalogue-draft-2024"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/organization/city-data-office",
+      "@type": "https://example.org/rdfusion-eval/class/DraftPublisherRecord",
+      "name": "City Data Office"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld",
+      "@type": "https://example.org/rdfusion-eval/class/DraftDatasetRecord",
+      "title": "Traffic counter locations",
+      "description": {
+        "@value": "Locations and operating metadata for automated traffic counters.",
+        "@langauge": "en"
+      },
+      "issued": {"@value": "2024-14-03", "@type": "xsd:date"},
+      "modified": "2024-06-01",
+      "publisher": "https://example.org/rdfusion-eval/organization/city-data-office",
+      "keyword": ["traffic", "mobility", "traffic"],
+      "theme": "http://publications.europa.eu/resource/authority/data-theme/TRAN",
+      "landingPage": "https://example.org/datasets/traffic-counters",
+      "distribution": [
+        "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld/csv",
+        "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld/csv"
+      ]
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld/csv",
+      "@type": "https://example.org/rdfusion-eval/class/DraftDistributionRecord",
+      "title": "Traffic counter locations CSV distribution",
+      "format": "http://publications.europa.eu/resource/authority/file-type/CSV",
+      "mediaType": "https://www.iana.org/assignments/media-types/text/csv",
+      "dcat:downlodURL": "https://example.org/downloads/traffic-counters.csv",
+      "downloadURL": "htps://example.org/downloads/traffic-counters.csv"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/dataset/traffic-counters-jsonld/csv",
+      "@type": "https://example.org/rdfusion-eval/class/DraftDistributionRecord",
+      "title": "Duplicate draft distribution entry for review"
+    }
+  ]
+}

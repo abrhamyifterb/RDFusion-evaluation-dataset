@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Catalog": "dcat:Catalog",
+    "Dataset": "dcat:Dataset",
+    "Distribution": "dcat:Distribution",
+    "Agent": "foaf:Agent",
+    "title": "dct:title",
+    "description": "dct:description",
+    "publisher": {"@id": "dct:publisher", "@type": "@id"},
+    "issued": {"@id": "dct:issued", "@type": "xsd:date"},
+    "modified": {"@id": "dct:modified", "@type": "xsd:date"},
+    "keyword": "dcat:keyword",
+    "theme": {"@id": "dcat:theme", "@type": "@id"},
+    "dataset": {"@id": "dcat:dataset", "@type": "@id"},
+    "distribution": {"@id": "dcat:distribution", "@type": "@id"},
+    "landingPage": {"@id": "dcat:landingPage", "@type": "@id"},
+    "downloadURL": {"@id": "dcat:downloadURL", "@type": "@id"},
+    "mediaType": {"@id": "dcat:mediaType", "@type": "@id"},
+    "format": {"@id": "dct:format", "@type": "@id"},
+    "name": "foaf:name"
+  },
+  "@graph": [
+    {
+      "@id": "https://example.org/rdfusion-eval/catalogue",
+      "@type": "Catalog",
+      "title": "Example regional open data catalogue",
+      "publisher": "https://example.org/rdfusion-eval/organization/environment-agency",
+      "dataset": "https://example.org/rdfusion-eval/dataset/water-quality"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/organization/environment-agency",
+      "@type": "Agent",
+      "name": "Environment Agency"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/dataset/water-quality",
+      "@type": "Dataset",
+      "title": "Water quality monitoring points",
+      "description": "Monitoring locations and summary measurements for public water quality reporting.",
+      "issued": "2024-01-15",
+      "modified": "2024-06-01",
+      "publisher": "https://example.org/rdfusion-eval/organization/environment-agency",
+      "keyword": ["water quality", "monitoring", "environment"],
+      "theme": "http://publications.europa.eu/resource/authority/data-theme/ENVI",
+      "landingPage": "https://example.org/datasets/water-quality",
+      "distribution": "https://example.org/rdfusion-eval/dataset/water-quality/csv"
+    },
+    {
+      "@id": "https://example.org/rdfusion-eval/dataset/water-quality/csv",
+      "@type": "Distribution",
+      "title": "Water quality monitoring points CSV distribution",
+      "format": "http://publications.europa.eu/resource/authority/file-type/CSV",
+      "mediaType": "https://www.iana.org/assignments/media-types/text/csv",
+      "downloadURL": "https://example.org/downloads/water-quality-monitoring-points.csv"
+    }
+  ]
+}

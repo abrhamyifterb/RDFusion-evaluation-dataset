@@ -1,0 +1,68 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rdfusion-eval/catalogue>
+    a dcat:Catalog ;
+    dct:title "Example regional open data catalogue"@en ;
+                    dct:modified "2024-06-01"^^xsd:date ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+                                                dcat:dataset <https://example.org/rdfusion-eval/dataset/transport-stops> ,
+                 <https://example.org/rdfusion-eval/dataset/air-quality> ,
+                 <https://example.org/rdfusion-eval/dataset/cafe-locations> .
+
+<https://example.org/rdfusion-eval/organization/city-data-office>
+    a foaf:Agent .
+
+
+<https://example.org/rdfusion-eval/organization/city-data-office>
+    foaf:name "City Data Office"@en .
+
+<https://example.org/rdfusion-eval/dataset/transport-stops>
+    dcat:keyword "transport", "stops", "mobility" ;
+dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TRAN> ;
+    dcat:distribution <https://example.org/rdfusion-eval/dataset/transport-stops/csv> .
+
+<https://example.org/rdfusion-eval/dataset/transport-stops>
+                        a dcat:Dataset ;
+dct:title "Public transport stops"@en ;
+                dct:description "Stops, stations, and related access points for the city transport network."@en ;
+dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> .
+
+<https://example.org/rdfusion-eval/dataset/transport-stops/csv>
+        a dcat:Distribution ;
+                    dct:title "Public transport stops CSV distribution"@en ;
+                        dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:downloadURL <https://example.org/downloads/transport-stops-2024-06.csv> .
+
+<https://example.org/rdfusion-eval/dataset/air-quality>
+    a dcat:Dataset ;
+    dct:title "Air quality observations"@en ;
+dct:description       "Hourly air quality observations from public monitoring stations."@en ;
+    dct:publisher        <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dcat:keyword "air quality",                   "environment", "monitoring" ;
+ dcat:theme                                <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
+    dcat:distribution            <https://example.org/rdfusion-eval/dataset/air-quality/csv> .
+
+<https://example.org/rdfusion-eval/dataset/air-quality/csv>
+    a dcat:Distribution ;
+    dct:title "Air quality observations CSV distribution"@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:downloadURL <https://example.org/downloads/air-quality-2024-06.csv> .
+
+<https://example.org/rdfusion-eval/dataset/cafe-locations>
+    a                               dcat:Dataset ;
+    dct:title "Caf\u00E9 locations register"@en ;
+            dct:description "Register of licensed public caf\u00E9 locations."@en ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+            dcat:keyword "business", "public places" ;
+    dcat:theme          <http://publications.europa.eu/resource/authority/data-theme/ECON> ;
+    dcat:distribution        <https://example.org/rdfusion-eval/dataset/cafe-locations/csv> .
+
+<https://example.org/rdfusion-eval/dataset/cafe-locations/csv>
+    a dcat:Distribution ;
+    dct:title "Caf\u00E9 locations CSV distribution"@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:downloadURL <https://example.org/downloads/cafe-locations-2024-06.csv> .

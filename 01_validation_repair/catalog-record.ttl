@@ -1,0 +1,42 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rdfusion-eval/catalogue/draft-validation-record>
+    a <https://example.org/rdfusion-eval/class/DraftCatalogueRecord> ;
+    dct:titel "Draft regional transport catalogue"@en ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dcat:dataset <https://example.org/rdfusion-eval/dataset/traffic-counters> .
+
+<https://example.org/rdfusion-eval/organization/city-data-office>
+    a <https://example.org/rdfusion-eval/class/DraftPublisherRecord> ;
+    foaf:name "City Data Office"@en .
+
+<https://example.org/rdfusion-eval/dataset/traffic-counters>
+    adms:identifier "traffic-counters-2024" .
+
+<https://example.org/rdfusion-eval/dataset/traffic-counters>
+    a <https://example.org/rdfusion-eval/class/DraftDatasetRecord> ;
+    dct:title "Traffic counter locations"@en ;
+    dct:description "Locations and operating metadata for automated traffic counters."@en ;
+    dct:issued "2024-14-03"^^xsd:date ; 
+    dct:issued "2024-14-03"^^xsd:date ;
+    dct:modified "2024-06-O1"^^xsd:date ; 
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dcat:keyword "traffic", "mobility", "traffic" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TRAN> ;
+    dcat:landingPage <https://example.org/datasets/traffic-counters> ;
+    dcat:distribution <https://example.org/rdfusion-eval/dataset/traffic-counters/csv> .
+
+<https://example.org/rdfusion-eval/dataset/traffic-counters>
+    dcat:distribution <https://example.org/rdfusion-eval/dataset/traffic-counters/csv> .
+
+<https://example.org/rdfusion-eval/dataset/traffic-counters/csv>
+    a <https://example.org/rdfusion-eval/class/DraftDistributionRecord> ;
+    dct:title "Traffic counter locations CSV distribution"@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:downlodURL <https://example.org/downloads/traffic-counters.csv> ;
+    dcat:downloadURL <htps://example.org/downloads/traffic-counters.csv> .
+

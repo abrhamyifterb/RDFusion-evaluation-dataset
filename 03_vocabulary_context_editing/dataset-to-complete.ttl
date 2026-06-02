@@ -1,0 +1,50 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Scenario 3 authoring note:
+# This file is intentionally valid. The comments below are
+# authoring prompts, not validation errors. Add new triples by typing prefixes
+# such as dct: or dcat: and using RDFusion completion/hover to choose terms.
+
+<https://example.org/rdfusion-eval/organization/environment-agency>
+    a foaf:Agent ;
+    foaf:name "Environment Agency"@en ;
+    foaf:homepage <https://example.org/environment-agency> .
+
+<https://example.org/rdfusion-eval/concept/water-quality>
+    a skos:Concept ;
+    skos:prefLabel "Water quality"@en .
+
+<https://example.org/rdfusion-eval/dataset/water-quality>
+    a dcat:Dataset ;
+    dct:identifier "water-quality-monitoring-points" ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/environment-agency> ;
+    dct:issued "2024-03-01"^^xsd:date ;
+    dct:modified "2024-05-20"^^xsd:date .
+
+# Add descriptive dataset metadata for the subject above:
+# - add an English title using a DCMI Terms property;
+# - add an English description using a DCMI Terms property.
+
+# Add discovery/navigation links for the same dataset:
+# - connect it to the water-quality concept as its theme/classification;
+# - add the human-readable landing page;
+# - link it to the CSV distribution resource below.
+
+<https://example.org/rdfusion-eval/dataset/water-quality/csv>
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> .
+
+# Suggested values to reuse while authoring:
+# title: "Water quality monitoring points"@en
+# description: "Monitoring locations and summary measurements for public water quality reporting."@en
+# keywords: "water quality", "monitoring", "environment"
+# landing page: <https://example.org/datasets/water-quality-monitoring-points>
+# distribution title: "Water quality monitoring points CSV distribution"@en
+# download URL: <https://example.org/downloads/water-quality-monitoring-points.csv>
+# access URL: <https://example.org/api/water-quality-monitoring-points>
+# media type: <https://www.iana.org/assignments/media-types/text/csv>
+# byte size: "248192"^^xsd:decimal
+# license: <https://creativecommons.org/licenses/by/4.0/>

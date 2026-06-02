@@ -1,0 +1,36 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rdfusion-eval/catalogue>
+    a dcat:Catalog ;
+    dct:title "Example regional open data catalogue"@en ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dcat:dataset <https://example.org/rdfusion-eval/dataset/air-quality> .
+
+<https://example.org/rdfusion-eval/organization/city-data-office>
+    a foaf:Person .
+
+<https://example.org/rdfusion-eval/period/2024>
+    a dct:PeriodOfTime ;
+    dcat:startDate "2024-01-01"^^xsd:date .
+
+<https://example.org/rdfusion-eval/dataset/air-quality>
+    a dcat:Dataset ;
+    dct:title "Air quality observations"@en ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dct:issued "2024-02-01"^^xsd:date ;
+    dct:modified "2024-06-01"^^xsd:date ;
+    dct:temporal <https://example.org/rdfusion-eval/period/2024> ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
+    dct:spatial <http://publications.europa.eu/resource/authority/country/DEU> ;
+    dcat:keyword "air quality", "environment", "sensor observations" ;
+    dcat:landingPage <https://example.org/datasets/air-quality> ;
+    dcat:distribution <https://example.org/rdfusion-eval/dataset/air-quality/csv> .
+
+<https://example.org/rdfusion-eval/dataset/air-quality/csv>
+    a dcat:Distribution ;
+    dct:title "Air quality observations CSV distribution"@en ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> .

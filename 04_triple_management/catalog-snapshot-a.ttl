@@ -1,0 +1,51 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/rdfusion-eval/catalogue>
+    a dcat:Catalog ;
+    dct:title                                                               "Example regional open data – catalogue"@en ;
+                            dct:modified "2024-05-01"^^xsd:date ;
+    dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+                                        dcat:dataset <https://example.org/rdfusion-eval/dataset/transport-stops> ,
+                <https://example.org/rdfusion-eval/dataset/air-quality> .
+
+<https://example.org/rdfusion-eval/organization/city-data-office>
+    a               foaf:Agent ;
+            foaf:name "City Data Office"@en .
+
+<https://example.org/rdfusion-eval/dataset/transport-stops>
+    a dcat:Dataset ;
+                dct:title "Public transport stops 🚌"@en ;
+        dct:description "Stops, stations, and related access points for the city transport network."@en ;
+                                                        dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+                dcat:keyword "transport", "stops" ;
+dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TRAN> ;
+    dcat:distribution <https://example.org/rdfusion-eval/dataset/transport-stops/csv> .
+
+<https://example.org/rdfusion-eval/dataset/transport-stops/csv>
+    a 
+    dcat:Distribution ;
+            dct:title 
+                    "Public transport stops CSV distribution"@en ;
+    dct:format                   <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+        dcat:downloadURL <https://example.org/downloads/transport-stops-2024-05.csv> .
+
+<https://example.org/rdfusion-eval/dataset/air-quality>
+a dcat:Dataset ;
+  dct:title                     "Air quality observations"@en ;
+    dct:description     "Hourly air quality observations from public monitoring \u2014 stations."@en ;
+                dct:publisher <https://example.org/rdfusion-eval/organization/city-data-office> ;
+    dcat:keyword "air quality", "environment", "NO\u2082"   ;
+dcat:theme 
+        <http://publications.europa.eu/resource/authority/data-theme/ENVI> ;
+                dcat:distribution 
+    <https://example.org/rdfusion-eval/dataset/air-quality/csv> .
+
+<https://example.org/rdfusion-eval/dataset/air-quality/csv>
+                a dcat:Distribution ;
+    dct:title "Air quality observations CSV distribution"@en ;
+                                                            dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+                    dcat:downloadURL <https://example.org/downloads/air-quality-2024-05.csv> .
