@@ -5,9 +5,8 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
 # Scenario 3 authoring note:
-# This file is intentionally valid. The comments below are
-# authoring prompts, not validation errors. Add new triples by typing prefixes
-# such as dct: or dcat: and using RDFusion completion/hover to choose terms.
+# Add new triples by typing prefixes such as dct:, dcat:,
+# or skos: and using RDFusion completion/hover to choose terms.
 
 <https://example.org/rdfusion-eval/organization/environment-agency>
     a foaf:Agent ;
@@ -18,6 +17,10 @@
     a skos:Concept ;
     skos:prefLabel "Water quality"@en .
 
+# Authoring task A:
+# Complete this dataset record. Try adding triples inside this subject block.
+# Suggested approach: type dct: or dcat:, look at RDFusion suggestions,
+# then use hover to decide which property fits the requested metadata.
 <https://example.org/rdfusion-eval/dataset/water-quality>
     a dcat:Dataset ;
     dct:identifier "water-quality-monitoring-points" ;
@@ -25,17 +28,31 @@
     dct:issued "2024-03-01"^^xsd:date ;
     dct:modified "2024-05-20"^^xsd:date .
 
-# Add descriptive dataset metadata for the subject above:
-# - add an English title using a DCMI Terms property;
-# - add an English description using a DCMI Terms property.
+# Add descriptive dataset metadata for the dataset above:
+# - add a title using a DCMI Terms property;
+# - add a description using a DCMI Terms property;
+# - add a few keyword literals using the DCAT property for keywords.
 
 # Add discovery/navigation links for the same dataset:
 # - connect it to the water-quality concept as its theme/classification;
 # - add the human-readable landing page;
 # - link it to the CSV distribution resource below.
 
+
+# Authoring task B:
+# Complete this distribution record. Try typing dcat: and dct: predicates.
+# Compare terms such as access URL and download URL before choosing.
 <https://example.org/rdfusion-eval/dataset/water-quality/csv>
+    a dcat:Distribution ;
     dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> .
+
+# Add distribution metadata for the distribution above:
+# - add a title;
+# - add the direct file download URL;
+# - add the API/access page URL;
+# - add the media type IRI;
+# - add the byte size as an xsd:decimal literal;
+# - add the license IRI.
 
 # Suggested values to reuse while authoring:
 # title: "Water quality monitoring points"@en

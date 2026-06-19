@@ -1,24 +1,52 @@
 # Scenario 1 — RDF Validation and Repair
 
-## Situation
+## Goal
 
-A catalogue metadata record is being checked before publication. The same draft metadata is available in Turtle and JSON-LD.
+Check two draft catalogue records before publication and repair validation/data-quality issues. This scenario is about RDF/Turtle/JSON-LD validation and repair, **not SHACL**.
 
-This scenario is deliberately focused on non-SHACL validation. The records use local draft classes rather than `dcat:Catalog`, `dcat:Dataset`, `dcat:Distribution`, or `foaf:Agent`, so the SHACL shapes used in Scenario 2 should not target these files.
-
-## Your task
+## Files
 
 Open:
 
 - `catalog-record.ttl`
 - `catalog-record.jsonld`
 
-Review the files as you normally would before publishing or sharing RDF metadata. Use any other tools you normally use, and then use RDFusion where it helps,.
+## Suggested steps
 
-Look for validation or data-quality issues and make any repairs you think are needed. The issues are intentionally spread through the documents rather than concentrated in one statement.
+1. Open `catalog-record.ttl`.
+2. Review RDFusion diagnostics in the editor.
+3. Repair as many issues as you can. The intended issue types include:
+   - misspelled vocabulary terms;
+   - an undeclared prefix;
+   - invalid XSD date;
+   - suspicious IRI/URL schemes;
+   - duplicate triples or repeated values.
+4. For an undeclared prefix, try RDFusion's prefix quick fix. RDFusion can suggest a prefix declaration when the prefix is available from prefix.cc.
+5. For remote vocabulary typos, try RDFusion's vocabulary typo quick fix where available.
+6. Open `catalog-record.jsonld` and repeat the validation/repair process.
+
+## Important note about VS Code Fix and AI suggestions
+
+VS Code may show generic **Fix**, **Generate Code**, or AI-assisted actions. Those are not RDFusion features.
+
+For this scenario, RDFusion contributions include RDFusion diagnostics and RDFusion quick fixes namely:
+
+- remote vocabulary typo fixes;
+- missing-prefix fixes when the prefix can be resolved from prefix.cc.
+
+Other repairs need to be made manually.
 
 ## RDFusion features to try
 
-This scenario is intended to exercise Turtle validation, JSON-LD validation, diagnostics, prefix checks, date/literal checks, IRI or URL scheme checks, remote vocabulary typo detection, duplicate detection, and JSON-LD-specific checks.
+- Turtle validation
+- JSON-LD validation
+- diagnostics in the editor
+- prefix diagnostics and prefix quick fix from prefix.cc
+- XSD/date validation
+- IRI scheme validation
+- remote vocabulary typo diagnostics/quick fixes where available
+- duplicate detection
 
-SHACL validation and shape selection are evaluated separately in Scenario 2.
+## What to answer in the form
+
+Report whether RDFusion helped you find and understand the issues, and note any cases where you were confused or not clear with RDFusion functionality.

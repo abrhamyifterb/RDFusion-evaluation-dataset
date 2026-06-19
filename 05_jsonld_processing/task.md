@@ -1,20 +1,38 @@
 # Scenario 5 — JSON-LD Processing and Inspection
 
-## Situation
+## Goal
 
-A catalogue metadata record is available as JSON-LD and needs to be transformed for inspection or reuse.
+Run a JSON-LD processing operation from inside VS Code and inspect the result.
 
-## Your task
+This scenario is about JSON-LD processing commands.
+
+## Files
 
 Open:
 
 - `dcat-dataset.jsonld`
 - `dcat-frame.json`
 
-Process the JSON-LD file as you normally would. Use RDFusion where it helps, and use any other tools you normally use.
+## Suggested steps
 
-Run one JSON-LD operation: expansion, compaction, flattening, or framing. Then inspect the output.
+1. Open `dcat-dataset.jsonld`.
+2. Use the VS Code Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run one of:
+   - **RDFusion: Expand JSON-LD**
+   - **RDFusion: Compact JSON-LD**
+   - **RDFusion: Flatten JSON-LD**
+   - **RDFusion: Frame JSON-LD From Template**
+3. If you choose framing, use `dcat-frame.json` as the frame/template when prompted.
+4. Inspect the generated JSON-LD output in the new editor tab.
+5. Note whether the output was easier to inspect inside VS Code compared with your usual JSON-LD workflow.
 
 ## RDFusion features to try
 
-This scenario is intended to exercise JSON-LD expansion, compaction, flattening, framing, and output inspection inside Visual Studio Code. It is not a validation or context-authoring task.
+- JSON-LD expansion
+- JSON-LD compaction
+- JSON-LD flattening
+- JSON-LD framing
+- output inspection inside VS Code
+
+## What to answer in the form
+
+Report which JSON-LD operation you completed and whether RDFusion made the operation easier to run or inspect.
